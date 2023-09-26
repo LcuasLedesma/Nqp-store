@@ -1,9 +1,6 @@
 import getProduct from "@/actions/get-product";
-import getProducts from "@/actions/get-products";
 import Gallery from "@/components/gallery";
 import Info from "@/components/info";
-import ProductList from "@/components/product-list";
-import Container from "@/components/ui/container";
 
 interface ProductPageProps {
   params: { productId: string };
@@ -11,23 +8,18 @@ interface ProductPageProps {
 
 const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
   const product = await getProduct(params.productId);
-  const suggestedProduct = await getProducts({
-    categoryId: product?.category?.id,
-  });
+
   return (
-    <div className="bg-white">
-      <Container>
-        <div className="px-4 py-10 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-            <Gallery images={product.images} />
-            <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-              <Info data={product} />
-            </div>
-          </div>
-          <hr className="my-10" />
-          <ProductList title="Related Items" items={suggestedProduct} />
+    <div className="mx-auto max-w-7xl w-full h-full ">
+      <div className="flex flex-col md:flex-row h-full w-full gap-8 px-4 sm:px-6 lg:px-8">
+        <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0 block md:hidden">
+          <Info data={product} />
         </div>
-      </Container>
+        <Gallery images={product.images} />
+        <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0 hidden md:block">
+          <Info data={product} />
+        </div>
+      </div>
     </div>
   );
 };

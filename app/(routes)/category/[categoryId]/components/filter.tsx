@@ -2,14 +2,14 @@
 
 import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import { Color, Size } from "@/type";
+import { Size } from "@/type";
 import { useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 
 interface FilterProps {
   valueKey: string;
   name: string;
-  data: (Size | Color)[];
+  data: Size[];
 }
 
 const Filter: React.FC<FilterProps> = ({ valueKey, name, data }) => {

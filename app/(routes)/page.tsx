@@ -1,26 +1,19 @@
-import getBillboard from "@/actions/get-billboard";
-import getProducts from "@/actions/get-products";
-import Billboard from "@/components/billboard";
-import ProductList from "@/components/product-list";
-import Container from "@/components/ui/container";
-import getBillboards from "@/actions/get-billboards";
+import getCategories from "@/actions/get-categories";
+import Category from "@/components/category";
 
 export const revalidate = 0;
 
 const HomePage = async () => {
-  const billboards = await getBillboards();
-  const products = await getProducts({ isFeatured: true });
-  const billboard = await getBillboard(billboards[0].id);
+  const categories = await getCategories();
 
   return (
-    <Container>
-      <div className="space-y-10 pb-10">
-        <Billboard data={billboard} />
-        <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
-          <ProductList title="Featured Products" items={products} />
+    <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+      {categories.map((category) => (
+        <div>
+          <Category data={category} />
         </div>
-      </div>
-    </Container>
+      ))}
+    </div>
   );
 };
 

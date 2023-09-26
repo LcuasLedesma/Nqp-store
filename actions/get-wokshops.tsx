@@ -1,20 +1,18 @@
-import { Product } from "@/type";
+import { Workshop } from "@/type";
 import qs from "query-string";
 import axios from "axios";
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/workshops`;
 
 interface Query {
   categoryId?: string;
-  sizeId?: string;
   isFeatured?: boolean;
 }
 
-const getProducts = async (query: Query): Promise<Product[]> => {
+const getWorkshops = async (query: Query): Promise<Workshop[]> => {
   const url = qs.stringifyUrl({
     url: URL,
     query: {
-      sizeId: query.sizeId,
       categoryId: query.categoryId,
       isFeatured: query.isFeatured,
     },
@@ -26,4 +24,4 @@ const getProducts = async (query: Query): Promise<Product[]> => {
   return data;
 };
 
-export default getProducts;
+export default getWorkshops;

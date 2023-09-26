@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'DOBSON_P';
+  src: url('../font/Dobson-Regular.ttf') format('truetype'); 
+}
+
 html,
 body,
 :root {
   height: 100%;
+  font-family: 'DOBSON_P', sans-serif;
 }

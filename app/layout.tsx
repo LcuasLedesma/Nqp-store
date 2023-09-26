@@ -9,8 +9,8 @@ import ToastProvider from "@/providers/toast-provider";
 const font = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Store",
-  description: "Store",
+  title: "Nada Que Perder",
+  description: "NQP - Nada Que Perder",
 };
 
 export default function RootLayout({
@@ -20,11 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body>
         <ModalProvider />
         <ToastProvider />
-        <Navbar />
-        {children}
+
+        <div className=" mx-10 my-10 md:flex">
+          <Navbar />
+          <div className="md:ml-[210px] w-full">{children}</div>
+        </div>
+
         <Footer />
       </body>
     </html>

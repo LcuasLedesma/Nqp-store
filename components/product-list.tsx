@@ -4,16 +4,14 @@ import { Divide } from "lucide-react";
 import ProductCard from "./ui/product-card";
 
 interface ProductListProps {
-  title: string;
   items: Product[];
 }
 
-const ProductList: React.FC<ProductListProps> = ({ title, items }) => {
+const ProductList: React.FC<ProductListProps> = ({ items }) => {
   return (
-    <div className="space-y-4">
-      <h3 className="font-bold text-3xl">{title}</h3>
+    <div className="text-center flex-col">
       {items.length === 0 && <NoResults />}
-      <div className="grid grid-cold-1 sm:grid-cols-2 md:grid-cols-3 lg:girds-col-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full h-full ">
         {items.map((item) => (
           <ProductCard key={item.id} data={item} />
         ))}

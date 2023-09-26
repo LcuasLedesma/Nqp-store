@@ -1,10 +1,10 @@
-import { Product } from "@/type";
+import { Product, Workshop } from "@/type";
 import { create } from "zustand";
 
 interface PreviewModalStore {
   isOpen: boolean;
   data?: Product;
-  onOpen: (data: Product) => void;
+  onOpen: (data: Product | Workshop) => void;
   onClose: () => void;
 }
 

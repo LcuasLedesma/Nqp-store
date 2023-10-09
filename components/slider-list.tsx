@@ -1,5 +1,3 @@
-"use client";
-
 import { Product, Workshop } from "@/type";
 import Slider from "./ui/slider";
 import MobileSlider from "./ui/mobile-slider";
@@ -20,25 +18,15 @@ const SliderList: React.FC<SliderListProps> = ({ products, workshops }) => {
 
   return (
     <div className="">
-      {window.innerWidth > 1024 ? (
-        <div className="flex flex-col gap-14 w-full">
-          <Slider
-            images={imagesForProducts}
-            title="Productos"
-            data={products}
-          />
-          <Slider
-            images={imagesForWorkshops}
-            title="Talleres"
-            data={workshops}
-          />
-        </div>
-      ) : (
-        <div className="flex flex-col gap-14 w-full">
-          <MobileSlider images={imagesForProducts} title="Productos" />
-          <MobileSlider images={imagesForWorkshops} title="Talleres" />
-        </div>
-      )}
+      <div className={`flex-col gap-14 w-full hidden md:flex`}>
+        <Slider images={imagesForProducts} title="Productos" data={products} />
+        <Slider images={imagesForWorkshops} title="Talleres" data={workshops} />
+      </div>
+
+      <div className={`flex-col gap-14 w-full flex md:hidden`}>
+        <MobileSlider images={imagesForProducts} title="Productos" />
+        <MobileSlider images={imagesForWorkshops} title="Talleres" />
+      </div>
     </div>
   );
 };

@@ -36,6 +36,7 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
           height={400}
           className=" object-cover w-full transition-all duration-1000 hover:scale-110 aspect-[3/4] "
           onClick={handleClick}
+          onLoad={(e) => console.log("aaaaaaaaaaaaaaa")}
         />
       </div>
       <div className="opacity-0 group-hover:opacity-100 transition absolute w-full bottom-5">

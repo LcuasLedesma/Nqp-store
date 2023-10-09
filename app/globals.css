@@ -7,9 +7,97 @@
   src: url('../font/Dobson-Regular.ttf') format('truetype'); 
 }
 
+@font-face {
+  font-family: 'ROBOTO_B';
+  src: url('../font/roboto/Roboto-Regular.ttf') format('truetype'); 
+}
+
 html,
 body,
 :root {
   height: 100%;
   font-family: 'DOBSON_P', sans-serif;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); /* Comienza en 0 grados */
+  }
+
+  100% {
+    transform: rotate(360deg); /* Termina en 360 grados (igual que en 50%) */
+  }
+}
+
+
+
+@keyframes sideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes sideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-80%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(80%);
+    opacity: 0;
+  }
+}
+
+.sideLeft {
+  animation: sideLeft 1s ease-in-out;
+  opacity: 1;
+}
+
+.sideRight {
+  animation: sideRight 1s ease-in-out;
+  opacity: 1;
+}
+
+.fadeInLeft {
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+.fadeInRight {
+  animation: fadeInRight 1s ease-in-out;
+}
+
+.rotate {
+  animation: rotate 3s ease infinite;
+}
+
+.informativeText {
+  font-family: 'ROBOTO_B', sans-serif;
+  color: rgb(100, 98, 98);
 }

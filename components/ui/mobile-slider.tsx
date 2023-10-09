@@ -43,7 +43,10 @@ export default function MobileSlider({
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
-  console.log(images[0].split("/")[4]);
+
+  if (images.length === 0) {
+    return null;
+  }
 
   return (
     <div>

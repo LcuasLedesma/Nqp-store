@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import Image from "next/image";
 import { Product, Workshop } from "@/type";
 import usePreviewModal from "@/hooks/use-preview-modal";
 import IconButton from "./icon-button";
-import { Expand, SofaIcon } from "lucide-react";
+import { Expand, Loader2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Slider({
   images,
@@ -19,6 +20,7 @@ export default function Slider({
 }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const prewiewModal = usePreviewModal();
+  const [isLoading, setIsLoading] = useState(true);
 
   const totalPages = Math.ceil(images.length / 3);
 
@@ -35,6 +37,7 @@ export default function Slider({
       prevIndex === 0 ? totalPages - 1 : prevIndex - 1
     );
   };
+  console.log(isLoading);
 
   return (
     <div className="flex-col mx-auto max-w-7xl overflow-hidden h-full rounded-lg transition-all duration-1000">
@@ -48,20 +51,35 @@ export default function Slider({
         }}
       >
         {data.map((product, index) => (
-          <div className="cursor-pointer w-full relative group">
+          <div className="cursor-pointer w-full relative group" key={index}>
             <div className="overflow-hidden">
               {product.images?.[0]?.url.split("/")[4] === "image" ? (
-                <Image
-                  src={product.images?.[0]?.url}
-                  key={index}
-                  alt="slider"
-                  width={400}
-                  height={400}
-                  className="object-cover transition-all cursor-pointer duration-1000 hover:scale-105 hover:shadow-xl h-full max-h-[711px] min-w-[405px]"
-                />
+                <div>
+                  <div
+                    className={cn(
+                      "hidden justify-center items-center h-full min-h-[711px] min-w-[405px]",
+                      isLoading && "flex"
+                    )}
+                  >
+                    <Loader2 className={cn("animate-spin w-20 h-20")} />
+                  </div>
+                  <Image
+                    src={product.images?.[0]?.url}
+                    key={index}
+                    alt="slider"
+                    width={400}
+                    height={400}
+                    onLoad={() => setIsLoading(false)}
+                    className={cn(
+                      "object-cover transition-all cursor-pointer duration-1000 hover:scale-105 hover:shadow-xl h-full max-h-[711px] min-w-[405px]",
+                      isLoading && "opacity-0 w-0 h-0"
+                    )}
+                  />
+                </div>
               ) : (
                 <video
                   src={product.images?.[0]?.url}
+                  onLoadedData={() => setIsLoading(false)}
                   controls
                   width={400}
                   height={400}

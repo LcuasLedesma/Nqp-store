@@ -13,7 +13,7 @@ const Navbar = async () => {
   return (
     <div className="mx-auto justify-center top-0 left-0 z-50 md:ml-10 md:mt-10 md:fixed w-[175px]">
       <div className="flex-col ">
-        <Link href="/">
+        <Link href="/home">
           <Image
             src={logo}
             alt="logo"

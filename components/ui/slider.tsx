@@ -8,8 +8,9 @@ import usePreviewModal from "@/hooks/use-preview-modal";
 import IconButton from "./icon-button";
 import { Expand, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Slider from "react-slick";
 
-export default function Slider({
+export default function SliderImages({
   images,
   title,
   data,
@@ -37,10 +38,8 @@ export default function Slider({
       prevIndex === 0 ? totalPages - 1 : prevIndex - 1
     );
   };
-  console.log(isLoading);
-
   return (
-    <div className="flex-col mx-auto max-w-7xl overflow-hidden h-full rounded-lg transition-all duration-1000">
+    <div className="flex-col overflow-hidden h-full rounded-lg transition-all duration-1000">
       <h3 className="font-bold text-3xl flex items-center justify-center ">
         {title}
       </h3>
@@ -57,7 +56,7 @@ export default function Slider({
                 <div>
                   <div
                     className={cn(
-                      "hidden justify-center items-center h-full min-h-[711px] min-w-[405px]",
+                      "hidden justify-center  items-center h-full min-h-[711px] min-w-[405px]",
                       isLoading && "flex"
                     )}
                   >

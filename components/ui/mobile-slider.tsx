@@ -57,7 +57,7 @@ export default function MobileSlider({
         {images[imageIndex].split("/")[4] === "image" ? (
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
-              className="absolute object-cover max-h-[711px] h-full w-[90%] cursor-grab active:cursor-grabbing"
+              className="absolute object-conatin max-h-[600px] h-full min-w-[340px] cursor-grab active:cursor-grabbing"
               key={page}
               src={images[imageIndex]}
               custom={direction}

@@ -12,6 +12,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
     <div className=" w-full relative">
       {images.map((image) => (
         <Image
+          key={image.id}
           src={image.url}
           alt=""
           width={600}

@@ -1,5 +1,5 @@
 import { Product, Workshop } from "@/type";
-import Slider from "./ui/slider";
+import SliderImages from "./ui/slider";
 import MobileSlider from "./ui/mobile-slider";
 
 interface SliderListProps {
@@ -17,13 +17,23 @@ const SliderList: React.FC<SliderListProps> = ({ products, workshops }) => {
     .map((image) => image.url);
 
   return (
-    <div className="">
-      <div className={`flex-col gap-14 w-full hidden md:flex`}>
-        <Slider images={imagesForProducts} title="Productos" data={products} />
-        <Slider images={imagesForWorkshops} title="Talleres" data={workshops} />
+    <div>
+      <div
+        className={`flex-col w-full mx-auto max-w-7xl gap-14 hidden xl:flex`}
+      >
+        <SliderImages
+          images={imagesForProducts}
+          title="Productos"
+          data={products}
+        />
+        <SliderImages
+          images={imagesForWorkshops}
+          title="Talleres"
+          data={workshops}
+        />
       </div>
 
-      <div className={`flex-col gap-14 w-full flex md:hidden`}>
+      <div className={`flex-col gap-14 w-full flex xl:hidden`}>
         <MobileSlider images={imagesForProducts} title="Productos" />
         <MobileSlider images={imagesForWorkshops} title="Talleres" />
       </div>

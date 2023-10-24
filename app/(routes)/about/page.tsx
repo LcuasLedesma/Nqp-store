@@ -1,49 +1,53 @@
 import { Text } from "@/components/ui/text";
-import about from "../../../public/about.jpg";
+import about from "@/public/about/about.jpg";
+import about2 from "@/public/about/nosotros.jpg";
+import about3 from "@/public/about/nosotrosss.jpg";
 import Image from "next/image";
 import Socials from "@/components/socials";
 import { List } from "@/components/list";
 import ImageAnimate from "@/components/image-animate";
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
 import Wraper from "@/components/wraper";
+import MobileSliderAbout from "@/components/mobile-slider-about";
 
 const About = () => {
   return (
     <Wraper>
-      <div className="flex flex-col gap-16 lg:mx-[10rem] md:mx-[5rem]">
-        <div className="md:grid lg:flex lg:flex-col gap-10 justify-center items-center ">
-          <div className=" flex flex-col gap-10 text-center items-center justify-center">
+      <div className="flex flex-col gap-16 max-w-7xl mx-auto">
+        <div className="grid xl:flex xl:flex-col gap-10 justify-center items-center ">
+          <div className="flex flex-col gap-10 text-center items-center justify-center">
             <h1 className="text-4xl pb-5 ">Conocenos!</h1>
             <Text />
             <Socials />
           </div>
-          <div className="flex flex-col lg:flex-row w-full h-full lg:h-[600px] relative">
+          <div className="hidden xl:flex flex-col lg:flex-row w-full h-full lg:h-[600px] relative">
             <Image
-              src={about}
-              alt="about"
+              src={about2}
+              alt="about1"
               width={300}
               height={400}
-              className="object-cover border-[2px] border-black mx-auto"
+              className="object-cover border-[2px] mx-auto"
             />
             <Image
               src={about}
-              alt="about"
+              alt="about2"
               width={300}
               height={400}
-              className=" object-cover border-[2px] border-black mx-auto"
+              className=" object-cover border-[2px] mx-auto"
             />
             <Image
-              src={about}
-              alt="about"
+              src={about3}
+              alt="about3"
               width={300}
               height={400}
-              className=" object-cover border-[2px] border-black  mx-auto"
+              className=" object-cover border-[2px] mx-auto"
             />
           </div>
-        </div>
-        <div className="">
-          <ImageAnimate />
+          <div className="xl:hidden mt-10">
+            <MobileSliderAbout images={[about2, about, about3]} title="" />
+          </div>
+          <div className=" md:w-full mx-auto">
+            <ImageAnimate />
+          </div>
         </div>
         <div>
           <h1 className="text-4xl pb-5">Entrevistas</h1>
@@ -83,8 +87,8 @@ const About = () => {
               Innovadoras Argentinas.
             </li>
             <li>
-              Representantes de Misiones en la Feria "Puro Diseño" de la Rural
-              de Bs As.
+              Representantes de Misiones en la Feria &quot;Puro Diseño&quot; de
+              la Rural de Bs As.
             </li>
           </ul>
         </div>

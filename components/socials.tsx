@@ -1,7 +1,7 @@
 import Link from "next/link";
-import instagram from "../public/instagram.svg";
-import facebook from "../public/facebook.svg";
-import mail from "../public/mail.svg";
+import instagram from "../public/svg/instagram.svg";
+import facebook from "../public/svg/facebook.svg";
+import mail from "../public/svg/mail.svg";
 import Image from "next/image";
 
 const UrlLink = ({ url, src }: { url: string; src: string }) => {

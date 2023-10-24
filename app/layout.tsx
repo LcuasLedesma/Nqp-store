@@ -2,8 +2,6 @@ import ModalProvider from "@/providers/modal-provider";
 import "./globals.css";
 import type { Metadata } from "next";
 import ToastProvider from "@/providers/toast-provider";
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "Nada Que Perder",
@@ -19,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <ModalProvider />
       <ToastProvider />
-      <body>
+      <body className="grainy">
         <div>{children}</div>
       </body>
     </html>

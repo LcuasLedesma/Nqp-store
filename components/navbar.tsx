@@ -1,6 +1,6 @@
 import Link from "next/link";
 import getCategories from "@/actions/get-categories";
-import logo from "../public/logo.png";
+import logo from "../public/logo/logo.png";
 import Image from "next/image";
 import MobileMenu from "./ui/mobile-menu";
 import Route from "./route";
@@ -11,8 +11,8 @@ const Navbar = async () => {
   const categories = await getCategories();
 
   return (
-    <div className="mx-auto justify-center top-0 left-0 z-50 md:ml-10 md:mt-10 md:fixed w-[175px]">
-      <div className="flex-col ">
+    <div className="mx-auto justify-center top-0 left-0 z-50 md:ml-10 md:mt-10 md:fixed w-[175px] ">
+      <div className="flex-col">
         <Link href="/home">
           <Image
             src={logo}

@@ -20,13 +20,9 @@ const CategoryPage: React.FC<CategoryProps> = async ({ params }) => {
     categoryId: params.categoryId,
   });
 
-  if (products && workshops) {
-    console.log("Aaaaaaaaaa");
-  }
-
   return (
     <Wraper>
-      <div className="w-full" id="test2">
+      <div className="w-full">
         {workshops.length === 0 ? (
           <ProductList items={products} />
         ) : (

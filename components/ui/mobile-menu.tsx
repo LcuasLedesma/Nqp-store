@@ -32,12 +32,14 @@ export default function MobileMenu({ categories }: { categories: Category[] }) {
         {isMenuOpen
           ? categories.map((categories: Category) => (
               <motion.ul
+                key={categories.id}
                 className="flex flex-col w-full md:hidden text-center"
                 initial={{ height: 0 }}
                 animate={{ height: "auto" }}
                 exit={{ height: 0 }}
               >
                 <motion.li
+                  key={categories.id}
                   className="flex w-full justify-center"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -45,6 +47,7 @@ export default function MobileMenu({ categories }: { categories: Category[] }) {
                   transition={{ duration: 0.15, ease: "easeOut" }}
                 >
                   <Link
+                    key={categories.id}
                     href={`/category/${categories.id}`}
                     className="w-[150px] py-4 border-b border-zinc-300 dark:border-zinc-800 font-inter"
                   >

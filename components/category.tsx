@@ -23,9 +23,11 @@ const Category: React.FC<CategoryProps> = ({ data }) => {
         width={600}
         height={400}
         className="object-cover w-full transition-all duration-1000 group-hover:scale-110 aspect-[3/4]"
-        onClick={() => handleClick(data.id)}
       />
-      <div className="absolute inset-0 bg-black w-full h-full opacity-0 transition-opacity group-hover:opacity-70 duration-1000">
+      <div
+        onClick={() => handleClick(data.id)}
+        className="absolute inset-0 bg-black w-full h-full opacity-0 transition-opacity group-hover:opacity-70 duration-1000"
+      >
         <div className="h-full flex justify-center items-center">
           <h1 className="text-white text-3xl">{data.name}</h1>
         </div>

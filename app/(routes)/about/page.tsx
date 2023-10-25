@@ -43,7 +43,7 @@ const About = () => {
             />
           </div>
           <div className="xl:hidden mt-10">
-            <MobileSliderAbout images={[about2, about, about3]} title="" />
+            <MobileSliderAbout images={[about, about2, about3]} title="" />
           </div>
           <div className=" md:w-full mx-auto">
             <ImageAnimate />

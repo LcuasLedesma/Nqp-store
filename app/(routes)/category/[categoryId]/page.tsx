@@ -1,38 +1,28 @@
-import getProducts from "@/actions/get-products";
-import getWorkshops from "@/actions/get-wokshops";
-import ProductList from "@/components/product-list";
-import SliderList from "@/components/slider-list";
-import Wraper from "@/components/wraper";
+import getProducts from '@/actions/get-products'
+import ProductList from '@/components/product-list'
+import SliderList from '@/components/slider-list'
+import Wraper from '@/components/wraper'
 
 interface CategoryProps {
-  params: { categoryId: string };
-  searchParams: { sizeId: string };
+	params: { categoryId: string }
+	searchParams: { sizeId: string }
 }
 
-const CategoryPage: React.FC<CategoryProps> = async ({ params }) => {
-  const products = await getProducts({
-    isFeatured: true,
-    categoryId: params.categoryId,
-  });
+const CategoryPage: React.FC<CategoryProps> = async ({
+	params,
+}) => {
+	const products = await getProducts({
+		isFeatured: true,
+		categoryId: params.categoryId,
+	})
 
-  const workshops = await getWorkshops({
-    isFeatured: true,
-    categoryId: params.categoryId,
-  });
+	return (
+		<Wraper>
+			<div className='w-full'>
+				<ProductList items={products} />
+			</div>
+		</Wraper>
+	)
+}
 
-  return (
-    <Wraper>
-      <div className="w-full">
-        {workshops.length === 0 ? (
-          <ProductList items={products} />
-        ) : (
-          <div>
-            <SliderList products={products} workshops={workshops} />
-          </div>
-        )}
-      </div>
-    </Wraper>
-  );
-};
-
-export default CategoryPage;
+export default CategoryPage

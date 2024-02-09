@@ -1,12 +1,12 @@
-import { Product, ProductForSell } from '@/type'
+import { ProductForSell } from '@/type'
 import NoResults from './ui/no-results'
-import ProductCard from './ui/product-card'
+import ProductForSellCard from './product-for-sell-card'
 
 interface ProductListProps {
-	items: Product[]
+	items: ProductForSell[]
 }
 
-const ProductList: React.FC<ProductListProps> = ({
+const ProductForSellList: React.FC<ProductListProps> = ({
 	items,
 }) => {
 	return (
@@ -14,11 +14,11 @@ const ProductList: React.FC<ProductListProps> = ({
 			{items.length === 0 && <NoResults />}
 			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full h-full '>
 				{items.map((item) => (
-					<ProductCard key={item.id} data={item} />
+					<ProductForSellCard key={item.id} data={item} />
 				))}
 			</div>
 		</div>
 	)
 }
 
-export default ProductList
+export default ProductForSellList

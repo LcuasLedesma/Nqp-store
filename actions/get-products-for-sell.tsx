@@ -1,17 +1,17 @@
-import { Product } from '@/type'
+import { ProductForSell } from '@/type'
 import qs from 'query-string'
 import axios from 'axios'
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/productsForSell`
 
 interface Query {
 	categoryId?: string
 	isFeatured?: boolean
 }
 
-const getProducts = async (
+const getProductsForSell = async (
 	query: Query
-): Promise<Product[]> => {
+): Promise<ProductForSell[]> => {
 	const url = qs.stringifyUrl({
 		url: URL,
 		query: {
@@ -26,4 +26,4 @@ const getProducts = async (
 	return data
 }
 
-export default getProducts
+export default getProductsForSell

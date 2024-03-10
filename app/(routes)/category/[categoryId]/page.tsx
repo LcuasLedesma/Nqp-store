@@ -1,6 +1,5 @@
 import getProducts from '@/actions/get-products'
 import ProductList from '@/components/product-list'
-import SliderList from '@/components/slider-list'
 import Wraper from '@/components/wraper'
 
 interface CategoryProps {

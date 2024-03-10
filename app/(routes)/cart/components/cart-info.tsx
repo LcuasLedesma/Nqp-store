@@ -3,7 +3,7 @@ import ShipmentForm from './shipment-form'
 
 const CartInfo = () => {
 	return (
-		<div className='mt-12 lg:grid lg:grid-cols-2 lg:items-start gap-x-12'>
+		<div className='pt-12 lg:grid lg:grid-cols-2 lg:items-start gap-x-12'>
 			<section>
 				<h1 className='text-3xl border-b mb-10'>Envío</h1>
 				<ShipmentForm />

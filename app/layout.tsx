@@ -17,9 +17,7 @@ export default function RootLayout({
 		<html lang='en'>
 			<ModalProvider />
 			<ToastProvider />
-			<body className='grainy'>
-				<div>{children}</div>
-			</body>
+			<body className='grainy'>{children}</body>
 		</html>
 	)
 }

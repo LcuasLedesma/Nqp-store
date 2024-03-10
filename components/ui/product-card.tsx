@@ -3,18 +3,16 @@
 import Image from 'next/image'
 import { MouseEventHandler } from 'react'
 import { Expand } from 'lucide-react'
-import { useRouter } from 'next/navigation'
 import IconButton from '@/components/ui/icon-button'
 import usePreviewModal from '@/hooks/use-preview-modal'
 import { Product, ProductForSell } from '@/type'
 
 interface ProductCard {
-	data: Product
+	data: ProductForSell | Product
 }
 
 const ProductCard: React.FC<ProductCard> = ({ data }) => {
 	const previewModal = usePreviewModal()
-	const router = useRouter()
 
 	const onPreview: MouseEventHandler = (event) => {
 		event.stopPropagation()

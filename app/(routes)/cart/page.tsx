@@ -4,9 +4,6 @@ import { Button } from '@/components/ui/Button'
 import {
 	Sheet,
 	SheetContent,
-	SheetDescription,
-	SheetHeader,
-	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet'
 import Summary from './components/summary'
@@ -17,7 +14,7 @@ const CartPage: React.FC<CartPageProps> = () => {
 	return (
 		<Wraper>
 			<div className='px-4 py-4 sm:px-6 lg:px-8'>
-				<Sheet>
+				{/* <Sheet>
 					<SheetTrigger className='md:hidden w-full'>
 						<Button variant={'ghost'} className='border'>
 							Ver Mi carrito de compras
@@ -26,7 +23,7 @@ const CartPage: React.FC<CartPageProps> = () => {
 					<SheetContent side={'left'}>
 						<Summary />
 					</SheetContent>
-				</Sheet>
+				</Sheet> */}
 				<CartInfo />
 			</div>
 		</Wraper>

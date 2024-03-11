@@ -10,7 +10,7 @@ export const revalidate = 0
 const Navbar = async () => {
 	const categories = await getCategories()
 
-	if (categories.length === 0) {
+	if (!categories) {
 		return
 	}
 

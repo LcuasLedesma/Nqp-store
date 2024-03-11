@@ -8,7 +8,9 @@ interface RouteProps {
 	categories: Category[]
 }
 
-const Route: React.FC<RouteProps> = ({ categories }) => {
+const Route: React.FC<RouteProps> = ({
+	categories = [],
+}) => {
 	const params = useParams()
 	const pathName = usePathname()
 

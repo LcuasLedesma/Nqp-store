@@ -8,11 +8,13 @@ interface RouteProps {
 	categories: Category[]
 }
 
-const Route: React.FC<RouteProps> = ({
-	categories = [],
-}) => {
+const Route: React.FC<RouteProps> = ({ categories }) => {
 	const params = useParams()
 	const pathName = usePathname()
+
+	if (!categories) {
+		return <div>loading...</div>
+	}
 
 	return (
 		<div className='font-bold text-xl flex-col pt-10 space-y-4 hidden md:flex'>

@@ -10,10 +10,6 @@ export const revalidate = 0
 const Navbar = async () => {
 	const categories = await getCategories()
 
-	if (!categories) {
-		return
-	}
-
 	return (
 		<div className='mx-auto justify-center top-0 left-0 z-50 md:ml-10 md:mt-10 md:fixed w-[175px] '>
 			<div className='flex-col'>
@@ -29,7 +25,7 @@ const Navbar = async () => {
 
 				<Route categories={categories} />
 
-				<MobileMenu categories={categories} />
+				{/* <MobileMenu categories={categories} /> */}
 			</div>
 		</div>
 	)

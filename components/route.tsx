@@ -11,24 +11,20 @@ interface RouteProps {
 const Route: React.FC<RouteProps> = ({ categories }) => {
 	const params = useParams()
 	const pathName = usePathname()
-	const category = categories.find(
-		(category) => category.id === params.categoryId
-	)
-	const categoryName = category?.name
 
 	return (
 		<div className='font-bold text-xl flex-col pt-10 space-y-4 hidden md:flex'>
-			{/* {categories.map((category) => (
+			{categories.map((category) => (
 				<Link
 					key={category.id}
 					href={`/category/${category.id}`}
 					className={`${
-						categoryName === category.name &&
+						params.categoryId === category.id &&
 						' bg-green-700 animate-wiggle-test'
 					} duration-300 hidden md:flex bg-black text-white justify-center hover:bg-orange-500 hover:scale-110`}>
 					{category.name}
 				</Link>
-			))} */}
+			))}
 			<Link
 				href={`/about`}
 				className={`${

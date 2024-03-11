@@ -12,8 +12,8 @@ const Route: React.FC<RouteProps> = ({ categories }) => {
 	const params = useParams()
 	const pathName = usePathname()
 
-	if (!categories) {
-		return <div>loading...</div>
+	if (!Array.isArray(categories)) {
+		return null
 	}
 
 	return (

@@ -25,7 +25,7 @@ const Navbar = async () => {
 
 				<Route categories={categories} />
 
-				{/* <MobileMenu categories={categories} /> */}
+				<MobileMenu categories={categories} />
 			</div>
 		</div>
 	)

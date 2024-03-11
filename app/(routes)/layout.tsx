@@ -1,11 +1,11 @@
-import Footer from './footer'
-import Navbar from './navbar'
+import Footer from '@/components/footer'
+import Navbar from '@/components/navbar'
 
-const Wraper = ({
+export default function DashboardLayout({
 	children,
 }: {
 	children: React.ReactNode
-}) => {
+}) {
 	return (
 		<div className='h-full flex flex-col justify-between gap-2'>
 			<div className='mx-10 pt-10 md:flex'>
@@ -18,5 +18,3 @@ const Wraper = ({
 		</div>
 	)
 }
-
-export default Wraper

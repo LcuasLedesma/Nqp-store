@@ -11,10 +11,10 @@ interface RouteProps {
 const Route: React.FC<RouteProps> = ({ categories }) => {
 	const params = useParams()
 	const pathName = usePathname()
-	// const category = categories.find(
-	// 	(category) => category.id === params.categoryId
-	// )
-	// const categoryName = category?.name
+	const category = categories.find(
+		(category) => category.id === params.categoryId
+	)
+	const categoryName = category?.name
 
 	return (
 		<div className='font-bold text-xl flex-col pt-10 space-y-4 hidden md:flex'>

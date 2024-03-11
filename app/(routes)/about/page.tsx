@@ -15,7 +15,7 @@ const About = () => {
 	return (
 		<div className='h-full flex flex-col justify-between gap-2'>
 			<div className='mx-10 pt-10 md:flex'>
-				<Navbar />
+				{/* <Navbar /> */}
 				<div className='md:ml-[210px] w-full'>
 					<div className='flex flex-col gap-16 max-w-7xl mx-auto'>
 						<div className='grid xl:flex xl:flex-col gap-10 justify-center items-center '>

@@ -1,27 +1,44 @@
-"use client";
+'use client'
 
-import { Image as ImageType } from "@/type";
-import Image from "next/image";
+import { Image as ImageType } from '@/type'
+import Image from 'next/image'
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from '@/components/ui/carousel-shadcn'
 
 interface GalleryProps {
-  images: ImageType[];
+	images: ImageType[]
 }
 
 const Gallery: React.FC<GalleryProps> = ({ images }) => {
-  return (
-    <div className=" w-full relative">
-      {images.map((image) => (
-        <Image
-          key={image.id}
-          src={image.url}
-          alt=""
-          width={600}
-          height={400}
-          className=" object-cover w-full aspect-[4:3] max-h-[900px] max-w-[600px]"
-        />
-      ))}
-    </div>
-  );
-};
+	return (
+		<picture className='w-full relative'>
+			<Carousel draggable>
+				<CarouselContent>
+					{images.map((image) => (
+						<CarouselItem
+							className='aspect-square'
+							key={image.id}>
+							<Image
+								key={image.id}
+								src={image.url}
+								alt='modal-image'
+								width={600}
+								height={400}
+								className='object-cover w-full aspect-square'
+							/>
+						</CarouselItem>
+					))}
+				</CarouselContent>
+				<CarouselPrevious />
+				<CarouselNext />
+			</Carousel>
+		</picture>
+	)
+}
 
-export default Gallery;
+export default Gallery

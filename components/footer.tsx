@@ -25,7 +25,7 @@ export default function Footer() {
 						width={20}
 						height={20}
 					/>
-					{label}
+					<span className='hidden md:block'>{label}</span>
 				</Link>
 			</li>
 		)

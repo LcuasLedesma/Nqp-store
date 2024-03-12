@@ -15,10 +15,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<ModalProvider />
-			<ToastProvider />
-			<body className='grainy'>
-				<div>{children}</div>
+			<body>
+				<ModalProvider />
+				<ToastProvider />
+				{children}
 			</body>
 		</html>
 	)

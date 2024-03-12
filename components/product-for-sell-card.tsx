@@ -5,13 +5,15 @@ import { MouseEventHandler } from 'react'
 import { Expand } from 'lucide-react'
 import IconButton from '@/components/ui/icon-button'
 import usePreviewModal from '@/hooks/use-preview-modal'
-import { Product, ProductForSell } from '@/type'
+import { ProductForSell } from '@/type'
 
-interface ProductCard {
-	data: ProductForSell | Product
+interface ProductForSellCardProps {
+	data: ProductForSell
 }
 
-const ProductCard: React.FC<ProductCard> = ({ data }) => {
+const ProductForSellCard: React.FC<
+	ProductForSellCardProps
+> = ({ data }) => {
 	const previewModal = usePreviewModal()
 
 	const onPreview: MouseEventHandler = (event) => {
@@ -44,4 +46,4 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
 	)
 }
 
-export default ProductCard
+export default ProductForSellCard

@@ -11,10 +11,10 @@ interface RouteProps {
 const Route: React.FC<RouteProps> = ({ categories }) => {
 	const params = useParams()
 	const pathName = usePathname()
-	const category = categories.find(
-		(category) => category.id === params.categoryId
-	)
-	const categoryName = category?.name
+
+	if (!Array.isArray(categories)) {
+		return null
+	}
 
 	return (
 		<div className='font-bold text-xl flex-col pt-10 space-y-4 hidden md:flex'>
@@ -23,9 +23,9 @@ const Route: React.FC<RouteProps> = ({ categories }) => {
 					key={category.id}
 					href={`/category/${category.id}`}
 					className={`${
-						categoryName === category.name &&
-						'animate-wiggle animate-once animate-ease-in-out bg-green-700 '
-					} duration-300 hidden md:flex bg-black text-white justify-center hover:bg-orange-500 hover:scale-110`}>
+						params.categoryId === category.id &&
+						' bg-green-700 animate-wiggle-test'
+					} duration-300 hidden md:flex bg-black text-white justify-center text-center hover:bg-orange-500 hover:scale-110`}>
 					{category.name}
 				</Link>
 			))}
@@ -33,8 +33,8 @@ const Route: React.FC<RouteProps> = ({ categories }) => {
 				href={`/about`}
 				className={`${
 					pathName === '/about' &&
-					' animate-wiggle animate-once animate-ease-in-out scale-105 bg-green-700'
-				} duration-300 hidden md:flex bg-black text-white justify-center hover:bg-orange-500 hover:scale-110`}>
+					' bg-green-700 animate-wiggle-test'
+				} duration-300  hidden md:flex bg-black text-white justify-center text-center hover:bg-orange-500 hover:scale-110`}>
 				Quienes somos
 			</Link>
 		</div>

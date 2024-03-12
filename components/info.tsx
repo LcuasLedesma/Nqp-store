@@ -30,7 +30,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
 	}
 
 	return (
-		<div className='w-full mx-auto'>
+		<div className='w-full mx-auto text-center'>
 			<h1 className='text-3xl font-bold text-gray-900 mb-4'>
 				{data.category.name}
 			</h1>
@@ -39,8 +39,24 @@ const Info: React.FC<InfoProps> = ({ data }) => {
 				<p className='text-xl text-gray-500'>
 					{data.description}
 				</p>
+				{data.weight && (
+					<div className='flex justify-center text-sm gap-4'>
+						<span>
+							<strong>peso: </strong>
+							{data.weight / 1000} kg
+						</span>
+						<span>
+							<strong>ancho: </strong>
+							{data.width} cm
+						</span>
+						<span>
+							<strong>alto: </strong>
+							{data.height} cm
+						</span>
+					</div>
+				)}
 				{data.price && (
-					<div className='flex flex-col gap-4'>
+					<div className='flex items-center justify-center flex-col gap-4'>
 						{cart.items.some(
 							(item) => item.id === data.id
 						) ? (
@@ -50,7 +66,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
 								Ir al carrito <ShoppingCart />
 							</Button>
 						) : (
-							<div className='text-3xl text-gray-900 mb-2 flex gap-8 items-center text-center'>
+							<div className='text-3xl justify-between text-gray-900 mb-2 flex gap-8 items-center text-center'>
 								<Currency price={data?.price} />
 								<Button
 									onClick={onAddToCart}

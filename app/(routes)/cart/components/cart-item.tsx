@@ -1,10 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { toast } from 'react-hot-toast'
 import { X } from 'lucide-react'
 
-import IconButton from '@/components/ui/icon-button'
 import Currency from '@/components/ui/currency'
 import useCart from '@/hooks/use-cart'
 import { ProductForSell } from '@/type'
@@ -30,7 +28,7 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
 					className='object-cover object-center'
 				/>
 			</div>
-			<div className='relative flex flex-1 flex-col ml-4 justify-between sm:ml-6'>
+			<div className='relative flex flex-col ml-4 justify-between sm:ml-6'>
 				<div className='absolute z-10 right-0 top-0'>
 					<Button
 						onClick={onRemove}
@@ -39,9 +37,9 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
 						<X size={12} />
 					</Button>
 				</div>
-				<div className='relative pr-10 sm:grid sm:grid-cols-2 sm:gap-x-6 sn:pr-0 items-center'>
+				<div className='relative pr-10 items-center'>
 					<div className='flex flex-col justify-between'>
-						<p className='text-black text-lg font-semibold'>
+						<p className='text-black text-md font-semibold'>
 							{data.name}
 						</p>
 						<Currency price={data.price} />

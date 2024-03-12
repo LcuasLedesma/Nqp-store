@@ -1,31 +1,52 @@
-import Link from "next/link";
-import instagram from "../public/svg/instagram.svg";
-import facebook from "../public/svg/facebook.svg";
-import mail from "../public/svg/mail.svg";
-import Image from "next/image";
+import Link from 'next/link'
+import {
+	Facebook,
+	Instagram,
+	LucideIcon,
+	Mail,
+} from 'lucide-react'
+import { BsWhatsapp } from 'react-icons/bs'
 
-const UrlLink = ({ url, src }: { url: string; src: string }) => {
-  return (
-    <Link href={url} className="flex gap-2 items-center">
-      <Image src={src} alt="" width={30} height={30} />
-    </Link>
-  );
-};
+const UrlLink = ({
+	url,
+	Icon,
+}: {
+	url: string
+	Icon: LucideIcon
+}) => {
+	return (
+		<Link href={url} className='flex gap-2 items-center'>
+			<Icon className='text-black' width={20} height={20} />
+		</Link>
+	)
+}
 
 const Socials = () => {
-  return (
-    <div className="flex flex-wrap gap-4">
-      <UrlLink
-        url="https://www.instagram.com/nqp_nadaqueperder/"
-        src={instagram}
-      />
-      <UrlLink
-        url="https://www.instagram.com/nqp_nadaqueperder/"
-        src={facebook}
-      />
-      <UrlLink url="https://www.instagram.com/nqp_nadaqueperder/" src={mail} />
-    </div>
-  );
-};
+	return (
+		<div className='flex flex-wrap gap-4'>
+			<UrlLink
+				url='https://www.instagram.com/nqp_nadaqueperder/'
+				Icon={Instagram}
+			/>
+			<UrlLink
+				url='mailto:lilinadaqueperder@gmail.com'
+				Icon={Mail}
+			/>
+			<UrlLink
+				url='https://www.facebook.com/nadaqueperder.recicla'
+				Icon={Facebook}
+			/>
+			<Link
+				href={'https://wa.me/3764653566'}
+				className='flex gap-2 items-center'>
+				<BsWhatsapp
+					className='text-black'
+					width={40}
+					height={40}
+				/>
+			</Link>
+		</div>
+	)
+}
 
-export default Socials;
+export default Socials

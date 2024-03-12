@@ -69,7 +69,7 @@ const Summary: React.FC<SummaryProps> = () => {
 			<div className='lg:col-span-7'>
 				{cart.items.length === 0 ? (
 					<p className='text-neutral-500'>
-						No items added to Cart
+						No tienes ningun producto en tu carro
 					</p>
 				) : (
 					<ul>

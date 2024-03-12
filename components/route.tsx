@@ -25,7 +25,7 @@ const Route: React.FC<RouteProps> = ({ categories }) => {
 					className={`${
 						params.categoryId === category.id &&
 						' bg-green-700 animate-wiggle-test'
-					} duration-300 hidden md:flex bg-black text-white justify-center hover:bg-orange-500 hover:scale-110`}>
+					} duration-300 hidden md:flex bg-black text-white justify-center text-center hover:bg-orange-500 hover:scale-110`}>
 					{category.name}
 				</Link>
 			))}
@@ -34,7 +34,7 @@ const Route: React.FC<RouteProps> = ({ categories }) => {
 				className={`${
 					pathName === '/about' &&
 					' bg-green-700 animate-wiggle-test'
-				} duration-300  hidden md:flex bg-black text-white justify-center hover:bg-orange-500 hover:scale-110`}>
+				} duration-300  hidden md:flex bg-black text-white justify-center text-center hover:bg-orange-500 hover:scale-110`}>
 				Quienes somos
 			</Link>
 		</div>

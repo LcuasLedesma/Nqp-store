@@ -12,10 +12,12 @@ export function SheetCart() {
 		<Sheet>
 			<SheetTrigger
 				className={cn(
-					buttonVariants({ variant: 'ghost' }),
-					'md:hidden w-full'
+					buttonVariants({ className: '' }),
+					'md:hidden w-full  informativeText '
 				)}>
-				Ver Mi carrito de compras
+				<span className='text-white'>
+					Ver Mi carrito de compras
+				</span>
 			</SheetTrigger>
 			<SheetContent side={'left'}>
 				<Summary />

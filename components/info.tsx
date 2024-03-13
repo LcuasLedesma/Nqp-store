@@ -1,34 +1,14 @@
 import { ProductForSell } from '@/type'
 import Currency from './ui/currency'
-import { ShoppingCart } from 'lucide-react'
-import { MouseEventHandler } from 'react'
-import useCart from '@/hooks/use-cart'
-import { useRouter } from 'next/navigation'
 import { Button } from './ui/Button'
-import usePreviewModal from '@/hooks/use-preview-modal'
+import { BsWhatsapp } from 'react-icons/bs'
+import Link from 'next/link'
 
 interface InfoProps {
 	data: ProductForSell
 }
 
 const Info: React.FC<InfoProps> = ({ data }) => {
-	const cart = useCart()
-	const router = useRouter()
-	const previewModal = usePreviewModal()
-
-	const onAddToCart: MouseEventHandler<
-		HTMLButtonElement
-	> = (event) => {
-		event.stopPropagation()
-
-		cart.addItem(data)
-	}
-
-	const onClick = () => {
-		previewModal.onClose()
-		router.push('/cart')
-	}
-
 	return (
 		<div className='w-full mx-auto text-center'>
 			<h1 className='text-3xl font-bold text-gray-900 mb-4'>
@@ -57,25 +37,17 @@ const Info: React.FC<InfoProps> = ({ data }) => {
 				)}
 				{data.price && (
 					<div className='flex items-center justify-center flex-col gap-4'>
-						{cart.items.some(
-							(item) => item.id === data.id
-						) ? (
+						<div className='text-3xl justify-between text-gray-900 mb-2 flex gap-8 items-center text-center'>
+							<Currency price={data?.price} />
 							<Button
-								onClick={onClick}
-								className='flex w-36'>
-								Ir al carrito <ShoppingCart />
+								asChild
+								className='transition-transform gap-4 duration-500 hover:opacity-100 hover:scale-110'>
+								<Link href={'https://wa.me/3764653566'}>
+									<BsWhatsapp className='w-5 h-5' />
+									Enviar mensaje
+								</Link>
 							</Button>
-						) : (
-							<div className='text-3xl justify-between text-gray-900 mb-2 flex gap-8 items-center text-center'>
-								<Currency price={data?.price} />
-								<Button
-									onClick={onAddToCart}
-									className='transition-transform duration-500 hover:opacity-100 hover:scale-110'>
-									Agregar al carrito
-									<ShoppingCart className='w-5 h-5' />
-								</Button>
-							</div>
-						)}
+						</div>
 					</div>
 				)}
 			</div>

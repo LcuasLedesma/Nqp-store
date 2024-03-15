@@ -18,8 +18,8 @@ const PreviewModal = () => {
 		<Modal
 			open={previewModal.isOpen}
 			onClose={previewModal.onClose}>
-			<div className='flex flex-col gap-6'>
-				<div className='px-14'>
+			<div className='flex flex-col gap-4'>
+				<div className='px-10'>
 					<Gallery images={product.images} />
 				</div>
 				<div className=''>

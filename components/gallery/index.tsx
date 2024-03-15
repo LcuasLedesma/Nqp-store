@@ -21,7 +21,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
 				<CarouselContent>
 					{images.map((image) => (
 						<CarouselItem
-							className='aspect-[9/16]'
+							className='aspect-auto'
 							key={image.id}>
 							<Image
 								key={image.id}

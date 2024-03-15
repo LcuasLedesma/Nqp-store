@@ -21,7 +21,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
 				<CarouselContent>
 					{images.map((image) => (
 						<CarouselItem
-							className='aspect-square'
+							className='aspect-[9/16]'
 							key={image.id}>
 							<Image
 								key={image.id}
@@ -29,7 +29,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
 								alt='modal-image'
 								width={600}
 								height={400}
-								className='object-cover w-full aspect-square'
+								className='object-cover w-full aspect-[9/16]'
 							/>
 						</CarouselItem>
 					))}

@@ -16,14 +16,14 @@ const Info: React.FC<InfoProps> = ({ data }) => {
 					{data.name}
 				</h1>
 			) : (
-				<h1 className='text-3xl font-bold text-gray-900'>
+				<h1 className='text-3xl informativeText font-bold text-gray-900'>
 					{data.category.name}
 				</h1>
 			)}
 
 			<hr className='my-2' />
 			<div className='flex flex-col gap-y-4 informativeText'>
-				<p className='text-md text-gray-500'>
+				<p className='text-sm text-gray-500'>
 					{data.description}
 				</p>
 				{data.weight && (
